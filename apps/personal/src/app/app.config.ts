@@ -27,18 +27,25 @@ export const provideTranslation = () => ({
   loader: {
     provide: TranslateLoader,
     useFactory: HttpLoaderFactory,
-    deps: [HttpClient],
+    deps: [HttpClient, PLATFORM_ID],
   },
 });
 
-export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  // if (isPlatformServer(this.platformId)) {
-      // return this.http.get<AXTranslation>(`http://localhost:4000/assets/i18n/${options.lang}/${options.scope}.json`);
-      return  new  TranslateHttpLoader(http,'http://localhost:4000/assets/i18n/', '.json');
-    // } else {
-      // return  new  TranslateHttpLoader(http, './assets/i18n/', '.json');
-      // return this.http.get<AXTranslation>(`/assets/i18n/${options.lang}/${options.scope}.json`);
-    // }
+export function HttpLoaderFactory(
+  http: HttpClient,
+  platformId: object
+): TranslateHttpLoader {
+  if (isPlatformServer(platformId)) {
+    // return this.http.get<AXTranslation>(`http://localhost:4000/assets/i18n/${options.lang}/${options.scope}.json`);
+    return new TranslateHttpLoader(
+      http,
+      'http://localhost:4000/assets/i18n/',
+      '.json'
+    );
+  } else {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+    // return this.http.get<AXTranslation>(`/assets/i18n/${options.lang}/${options.scope}.json`);
+  }
 }
 
 export const appConfig: ApplicationConfig = {
@@ -47,6 +54,6 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(withEventReplay()),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(appRoutes),
-    importProvidersFrom([TranslateModule.forRoot(provideTranslation())])
+    importProvidersFrom([TranslateModule.forRoot(provideTranslation())]),
   ],
 };
