@@ -1,1 +1,1 @@
-# personal_erb
+## npx nx generate @nx/angular:library --directory=libs/home --name=home --publishable=true --addTailwind=true --changeDetection=OnPush --flat=true --importPath=@libs/home --skipModule=true --skipTests=true --style=scss --unitTestRunner=none --viewEncapsulation=None --no-interactive
