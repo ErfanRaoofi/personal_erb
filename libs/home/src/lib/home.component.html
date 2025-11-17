@@ -11,10 +11,11 @@
 </header>
 
 <main class="bg-background">
-  <section class="grid grid-cols-12 container m-auto gap-16 py-14">
+  <section class="flex flex-col sm:grid grid-cols-12 container m-auto gap-16 py-14">
     <div class="h-full w-full col-span-5">
-      <div class="flex justify-start items-center w-full h-full">
+      <div class="flex justify-center sm:justify-start items-center w-full h-full">
         <img src="./assets/images/erfan.png" alt="" class="h-72 w-72" />
+        <!-- <img src="./assets/images/erfan-personel.png" alt="" class="h-72 w-72 rounded-2xl" /> -->
       </div>
     </div>
     <div
@@ -39,7 +40,7 @@
   <div class="doubleColor py-16">
     <div class="container m-auto h-full w-full">
       <div
-        class="grid grid-cols-3 gap-4 items-center w-full h-full justify-center"
+        class="flex flex-col sm:grid grid-cols-3 gap-4 items-center w-full h-full justify-center"
       >
         @for (attribute of attributes(); track $index) {
         <div
@@ -70,7 +71,7 @@
   <div class="py-16">
     <div class="container m-auto h-full w-full">
       <div
-        class="grid grid-cols-3 gap-4 items-center w-full h-full justify-center"
+        class="flex flex-col sm:grid grid-cols-3 gap-4 items-center w-full h-full justify-center"
       >
         @for (skill of skills(); track $index) {
         <div class="flex flex-col gap-4 p-4 justify-center items-center">
