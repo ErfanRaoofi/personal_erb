@@ -5,5 +5,5 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   font-family: sans-serif;
-  @apply w-dvw h-dvh;
+  @apply w-dvw h-dvh overflow-y-auto overflow-x-hidden;
 }
